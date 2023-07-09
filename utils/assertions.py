@@ -7,7 +7,9 @@ class Assert:
         validate(instance=instance, schema=BaseModel.schema())
         # validate(instance=instance, schema=BaseModel.model_json_schema())
         # validate(instance=instance, schema=BaseModel.schema())
-        # model_json_schema
+        #model_json_schema
         # cls.check_schema(schema)
+        #hello
+
 
 
