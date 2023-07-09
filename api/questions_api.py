@@ -63,6 +63,7 @@ class Api(Client):
         """
         url = self.BASE_URL + self.USERS + F"/{id}"
         return self.delete(url)
+    #h
 
 
 api = Api()

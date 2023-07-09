@@ -52,6 +52,6 @@ def test_create_delete():
     assert res.json()['job'] == job
 
     assert api.delete_user(res.json()['id']).status_code == HTTPStatus.NO_CONTENT
-
+    #hello
 
 
