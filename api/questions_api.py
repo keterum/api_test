@@ -1,3 +1,5 @@
+import self as self
+
 from api.client import Client
 import json
 
@@ -63,7 +65,27 @@ class Api(Client):
         """
         url = self.BASE_URL + self.USERS + F"/{id}"
         return self.delete(url)
-    #h
+
+
+    def correct_register(self, email, password):
+        """
+        :method:    post
+        :rout:      /api/register
+        :status:    200
+        :body:    {
+                    "email": "eve.holt@reqres.in",
+                    "password": ""
+                    }
+        """
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        url = self.BASE_URL + 'register'
+        payload = json.dumps({
+            "email": F"{email}",
+            "password": F"{password}"
+        })
+        return self.post(url, headers, payload)
 
 
 api = Api()

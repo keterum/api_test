@@ -13,5 +13,4 @@ class Client:
     @staticmethod
     def delete(url):
         return requests.request("DELETE", url)
-    #h
 
