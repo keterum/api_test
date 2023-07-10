@@ -17,7 +17,6 @@ class Api(Client):
         url = self.BASE_URL + self.USERS + '?page=2'
         return self.get(url)
 
-
     def single_user_not_found(self):
         """
                 :method:    get
@@ -56,7 +55,6 @@ class Api(Client):
         }
         return self.post(url, headers, payload)
 
-
     def delete_user(self, id: int):
         """
         :method:    delete
@@ -65,7 +63,6 @@ class Api(Client):
         """
         url = self.BASE_URL + self.USERS + F"/{id}"
         return self.delete(url)
-
 
     def correct_register(self, email, password):
         """
@@ -80,13 +77,30 @@ class Api(Client):
         headers = {
             'Content-Type': 'application/json'
         }
-        url = self.BASE_URL + 'register'
+        url = self.BASE_URL + '/register'
         payload = json.dumps({
             "email": F"{email}",
             "password": F"{password}"
         })
         return self.post(url, headers, payload)
 
+    def incorrect_register(self, email):
+        """
+        :method:    post
+        :rout:      /api/register
+        :status:    400
+        :body:    {
+                    "email": "eve.holt@reqres.in"
+                    }
+        """
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        url = self.BASE_URL + '/register'
+        payload = json.dumps({
+            "error": "Missing password"
+        })
+        return self.post(url, headers, payload)
 
 api = Api()
 

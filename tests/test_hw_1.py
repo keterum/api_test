@@ -12,4 +12,9 @@ def test_correct_register():
 
     assert reg.status_code == HTTPStatus.OK
 
-    # assert api.delete_user(res.json()['id']).status_code == HTTPStatus.NO_CONTENT
+
+def test_incorrect_register():
+    email = 'eve.holt@reqres.in'
+    reg = api.incorrect_register(email)
+    assert reg.json()
+    assert reg.status_code == HTTPStatus.BAD_REQUEST
